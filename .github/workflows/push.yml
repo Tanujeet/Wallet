@@ -24,7 +24,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: wallet:latest  # Replace with your Docker Hub username and repository
+        tags: tanujeet/wallet:latest  # Replace with your Docker Hub username and repository
 
     - name: Verify Pushed Image
-      run: docker pull wallet:latest  # Replace with your Docker Hub username and repository
+      run: docker pull tanujeet/wallet:latest  # Replace with your Docker Hub username and repository
