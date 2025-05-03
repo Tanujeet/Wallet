@@ -13,5 +13,12 @@
   "env": {
     "JWT_SECRET": "harsh",
     "DATABASE_URL": "postgresql://neondb_owner:npg_dv3icjpNCTt4@ep-weathered-field-a7jxtw41-pooler.ap-southeast-2.aws.neon.tech/neondb?sslmode=require"
-  }
+  },
+  "builds": [
+    {
+      "src": "apps/user-app/package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "buildCommand": "npx prisma generate && npm run build"
 }
