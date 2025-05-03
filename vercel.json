@@ -1,24 +1,20 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "apps/user-app/next.config.js",
+      "use": "@vercel/next"
+    }
+  ],
   "routes": [
     {
-      "src": "/user-app/(.*)",
+      "src": "/(.*)",
       "dest": "/apps/user-app/$1"
-    },
-    {
-      "src": "/bank-webhook/(.*)",
-      "dest": "/apps/bank-webhook/$1"
     }
   ],
   "env": {
     "JWT_SECRET": "harsh",
     "DATABASE_URL": "postgresql://neondb_owner:npg_dv3icjpNCTt4@ep-weathered-field-a7jxtw41-pooler.ap-southeast-2.aws.neon.tech/neondb?sslmode=require"
   },
-  "builds": [
-    {
-      "src": "apps/user-app/package.json",
-      "use": "@vercel/node"
-    }
-  ],
   "buildCommand": "npx prisma generate --schema=./packages/db/prisma/schema.prisma && npm run build"
 }
